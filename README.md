@@ -9,14 +9,13 @@ This library is dependent on pylair. After installing pylair, download the lates
 $ sudo pip install drone-ssl-hosts*.tar.gz  
   
 # Usage  
-      drone-ssl-hosts [-k] [-u=<username>] [-p=<password>] [-U=<url>] [-v] <id> <file>  
+      drone-ssl-hosts [-k] [-u=<username>] [-p=<password>] [-U=<url>] <id> <file>  
       drone-ssl-hosts --version  
       drone-ssl-hosts (-h | --help)  
   
 # Options
       -h --help       Show usage.  
       --version       Show version.  
-      -v              Verbose output  
       -k              Allow insecure SSL connections.  
       -u=<username>   Lair Username  
       -p=<password>   Lair Password  
