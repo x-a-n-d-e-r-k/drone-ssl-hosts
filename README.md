@@ -6,7 +6,11 @@ The purpose of this drone is to determine hostnames for a give set of IP address
 # Install
 This library is dependent on pylair. After installing pylair, download the latest release [here](https://github.com/x-a-n-d-e-r-k/drone-ssl-hosts/releases/latest).  
   
-$ sudo pip install drone-ssl-hosts*.tar.gz  
+$ sudo pip3 install drone-ssl-hosts*.tar.gz
+or 
+$ sudo pip3 install https://github.com/x-a-n-d-e-r-k/drone-ssl-hosts/releases/download/v1.0.0/drone-ssl-hosts-1.0.0.tar.gz
+or 
+$ sudo python3 -m pip install https://github.com/x-a-n-d-e-r-k/drone-ssl-hosts/releases/download/v1.0.0/drone-ssl-hosts-1.0.0.tar.gz
   
 # Usage  
       drone-ssl-hosts [-k] [-u=<username>] [-p=<password>] [-U=<url>] <id> <file>  
@@ -22,4 +26,11 @@ $ sudo pip install drone-ssl-hosts*.tar.gz
       -U=<url>        Lair API URL   
   
 drone-ssl-hosts will also make use of the LAIR_API_SERVER environment variable if it is set. If you choose to use the environment variable, you can exclude the -u, -p, and -U options.
+
+# File Example  
+  127.0.0.1:443  
+  127.0.0.2:8443  
+  127.0.0.3:8080  
+
+
 
