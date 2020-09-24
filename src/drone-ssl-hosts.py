@@ -51,10 +51,10 @@ def get_connection_details(args):
         conx['scheme'] = url.scheme
     return conx
 
-def get_hostnames(ip, host):
+def get_hostnames(ip, port):
     ctx = ssl.create_default_context()
     ctx.check_hostname = False
-    s = ctx.wrap_socket(socket.socket(socket.AF_INET, socket.SOCK_STREAM), server_hostname=ip) 
+    s = ctx.wrap_socket(socket.socket()) 
     s.connect((ip, port))
     cert = s.getpeercert()
     subject = dict(x[0] for x in cert['subject'])
@@ -79,6 +79,7 @@ def main():
     project_id = arguments['<id>']
     project = dict(models.project)
     project['id'] = project_id
+    project['commands'] = [{'command': 'ssl', 'tool': 'sockets'}]
     project['tool'] = 'drone-ssl-hosts'
 
     opts = client.Options(conx_details['username'],
@@ -95,30 +96,27 @@ def main():
         exit(1)
 
     for line in lines:
-        try:
-            host = tuple(my_str.split(':')[:-1])
-            ip = ip_address(host[0])
-            port = host[1]
-        except AddrFormatError:
-            print("Info: Skipping ",line,". Not an IP Address")
-            continue
-           
+        host = tuple(line.split(':'))
+        ip = host[0]
+        port = int(host[1])
         hostnames = get_hostnames(ip,port)
 
         for name in hostnames:
             resolves_to = socket.gethostbyname(name)
-            if resolves_to -ne ip:
+            if str(resolves_to) != ip:
                hostnames.delete(name)
 
         host = dict(models.host)
-        host['IPv4'] = ip
+        host['ipv4'] = ip
         host['Hostnames'] = hostnames
         host['LastModifiedBy'] = 'drone-ssl-hosts'
+        host['projectId'] = project_id
         project['hosts'].append(host)
 
     res = client.import_project(project, opts)
     if res['status'] == 'Error':
         print("Fatal: ",res['message'])
+        print(project)
         exit(1)
     print("Success: Operation completed successfully")
       
