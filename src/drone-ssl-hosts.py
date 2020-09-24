@@ -9,7 +9,6 @@ Usage:
 Options:
    -h --help       Show usage.
    --version       Show version.
-   -v              Verbose output
    -k              Allow insecure SSL connections.
    -u=<username>   Lair Username
    -p=<password>   Lair Password
@@ -108,15 +107,14 @@ def main():
 
         host = dict(models.host)
         host['ipv4'] = ip
-        host['Hostnames'] = hostnames
-        host['LastModifiedBy'] = 'drone-ssl-hosts'
+        host['hostnames'] = hostnames
+        host['lastModifiedBy'] = 'drone-ssl-hosts'
         host['projectId'] = project_id
         project['hosts'].append(host)
 
     res = client.import_project(project, opts)
     if res['status'] == 'Error':
         print("Fatal: ",res['message'])
-        print(project)
         exit(1)
     print("Success: Operation completed successfully")
       
