@@ -5,7 +5,7 @@ setup(
     version='1.0.0',
     author='XanderK',
     author_email='xanderk@notbo.red',
-    scripts=['src/drone-ssl-hosts'],
+    scripts=['src/drone-ssl-hosts.py'],
     url='https://github.com/x-a-n-d-e-r-k/drone-ssl-hosts',
     license='LICENSE',
     description='Drone for importing hostnames based on SSL/TLS certificate information into Lair.',
