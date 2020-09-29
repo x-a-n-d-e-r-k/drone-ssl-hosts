@@ -103,7 +103,7 @@ def main():
         for name in hostnames:
             resolves_to = socket.gethostbyname(name)
             if str(resolves_to) != ip:
-               hostnames.delete(name)
+               hostnames.remove(name)
 
         host = dict(models.host)
         host['ipv4'] = ip
