@@ -6,11 +6,11 @@ The purpose of this drone is to determine hostnames for a give set of IP address
 # Install
 This library is dependent on pylair. After installing pylair, download the latest release [here](https://github.com/x-a-n-d-e-r-k/drone-ssl-hosts/releases/latest).  
   
-$ sudo pip3 install drone-ssl-hosts*.tar.gz
-or 
-$ sudo pip3 install https://github.com/x-a-n-d-e-r-k/drone-ssl-hosts/releases/download/v1.0.0/drone-ssl-hosts-1.0.0.tar.gz
-or 
-$ sudo python3 -m pip install https://github.com/x-a-n-d-e-r-k/drone-ssl-hosts/releases/download/v1.0.0/drone-ssl-hosts-1.0.0.tar.gz
+$ sudo pip3 install drone-ssl-hosts*.tar.gz  
+or   
+$ sudo pip3 install https://github.com/x-a-n-d-e-r-k/drone-ssl-hosts/releases/download/v1.0.0/drone-ssl-hosts-1.0.0.tar.gz  
+or   
+$ sudo python3 -m pip install https://github.com/x-a-n-d-e-r-k/drone-ssl-hosts/releases/download/v1.0.0/drone-ssl-hosts-1.0.0.tar.gz  
   
 # Usage  
       drone-ssl-hosts [-k] [-u=<username>] [-p=<password>] [-U=<url>] <id> <file>  
