@@ -28,9 +28,9 @@ $ sudo python3 -m pip install https://github.com/x-a-n-d-e-r-k/drone-ssl-hosts/r
 drone-ssl-hosts will also make use of the LAIR_API_SERVER environment variable if it is set. If you choose to use the environment variable, you can exclude the -u, -p, and -U options.
 
 # File Example  
-  127.0.0.1:443  
-  127.0.0.2:8443  
-  127.0.0.3:8080  
+      127.0.0.1:443  
+      127.0.0.2:8443  
+      127.0.0.3:8080  
 
 
 
